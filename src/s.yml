@@ -1,0 +1,32 @@
+edition: 1.0.0          #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
+name: todo-list         # 项目名称
+access: '{{access}}'    #  秘钥别名
+
+services:
+  TodoList: #  服务名称
+    component: devsapp/fc
+    props: #  组件的属性值
+      region: cn-hangzhou
+      service:
+        name: todoList-service
+      function:
+        name: todoList
+        description: todoList app
+        runtime: nodejs12
+        codeUri: './'
+        handler: src/index.handler
+        memorySize: 256
+        timeout: 60
+      triggers:
+        - name: httpTrigger
+          type: http
+          config:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+      customDomains:
+        - domainName: auto
+          protocol: HTTP
+          routeConfigs:
+            - path: /*
