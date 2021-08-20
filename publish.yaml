@@ -1,17 +1,14 @@
 Type: Application
 Name: todolist-app
-Version: 0.0.3
+Version: 0.0.4
 Provider:
   - 阿里云
 Description: 一款基于Node.JS的网页TodoList应用
 HomePage: https://github.com/devsapp/todolist-app
 Tags:
   - todoList
-  - 音视频
-  - 转码
-  - 音频
-  - 视频
-Category: 音视频处理
+  - 云应用
+Category: 基础云服务
 Service:
   函数计算:
     Authorities:
